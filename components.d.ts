@@ -9,10 +9,14 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
     VanButton: typeof import('vant/es')['Button']
     VanIcon: typeof import('vant/es')['Icon']
     VanImage: typeof import('vant/es')['Image']
     VanNavBar: typeof import('vant/es')['NavBar']
+    VanRow: typeof import('vant/es')['Row']
+    VanSearch: typeof import('vant/es')['Search']
     VanTabbar: typeof import('vant/es')['Tabbar']
     VanTabbarItem: typeof import('vant/es')['TabbarItem']
   }
