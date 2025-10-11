@@ -1,6 +1,6 @@
 <template >
   <van-row>
-    <form action="/">
+    <form action="/" style="width: 100%;">
       <van-search
           v-model="searchText"
           show-action
@@ -24,8 +24,11 @@
       v-model:main-active-index="activeIndex"
       :items="tempItems"
   />
-
-
+  <div style="padding: 20px">
+  <van-button block primary @click="searchUsers()">
+    搜索用户
+  </van-button>
+  </div>
 </template>
 
 
@@ -50,17 +53,17 @@ const originItems = [
   {
     text: '性别',
     children: [
-      { text: '男', id: 1 },
-      { text: '女', id: 2 },
-      { text: '沃尔玛购物袋', id: 3, disabled: true },
+      { text: '男', id: "男" },
+      { text: '女', id: "女" },
+      { text: '沃尔玛购物袋', id: "沃尔玛购物袋", disabled: true },
     ],
   },
   {
-    text: '地区',
+    text: '学习方向',
     children: [
-      { text: '南京', id: 4 },
-      { text: '无锡', id: 5 },
-      { text: '徐州', id: 6 },
+      { text: 'java', id: 'java' },
+      { text: 'python', id: 'python' },
+      { text: 'c++', id: 'c++' },
     ],
   },
   // { text: '福建', disabled: true },
@@ -72,8 +75,7 @@ let tempItems = ref(originItems);
 const router = useRouter();
 // 搜索条件
 const searchText = ref('');
-// TODO 搜索事件逻辑还需更改
-// TODO:根据搜索框内容进行标签的过滤后进行展示
+
 const onSearch = (val) => {
   tempItems.value = originItems.map(parentTag =>{
     const tempChildren = [...parentTag.children];
@@ -91,5 +93,13 @@ const onCancel = () => {
   tempItems.value = originItems;
 };
 
+const searchUsers = () => {
+  router.push({
+    path: '/user/list',
+    query: {
+      tags: activeId.value
+    }
+  })
+}
 
 </script>

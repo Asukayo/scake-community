@@ -11,7 +11,9 @@ const user = {
   email: "sjgiub@QQ.com",
   createTime: new Date(),
 }
+
 const router = useRouter()
+
 const doEdit = (editKey: string,editLabel: string,editValue: string) => {
   router.push({
     path: "/user/edit",

@@ -6,14 +6,15 @@ import {ref} from "vue";
 const router = useRoute()
 console.log(router.query.editKey)
 
+
 const editInfo = ref({
-  editKey: router.query.editKey,
-  editLabel: router.query.editLabel,
-  editValue: router.query.editValue,
+  editKey: (router.query.editKey as string) || '',
+  editLabel: (router.query.editLabel as string) || '',
+  editValue: (router.query.editValue as string) || '',
 })
 
-// TODO:将待修改项目的值传给后端
-const onSubmit = (values) => {
+// 为 values 参数添加类型注解
+const onSubmit = (values: Record<string, any>) => {
   console.log('submit', values);
 };
 
