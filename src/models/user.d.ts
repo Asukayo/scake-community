@@ -14,5 +14,5 @@ export type UserType = {
     userRole: string;
     inviteCode: string;
     createTime: Date;
-    Tags: string[];
+    tags: string[];
 }

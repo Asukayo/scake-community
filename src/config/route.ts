@@ -1,18 +1,20 @@
-import Index from "../pages/Index.vue";
-import Team from "../pages/Team.vue";
-import User from "../pages/User.vue";
+import IndexPage from "../pages/IndexPage.vue";
+import TeamPage from "../pages/TeamPage.vue";
+import UserPage from "../pages/UserPage.vue";
 import SearchPage from "../pages/SearchPage.vue";
-import UserEdit from "../pages/UserEdit.vue";
+import UserEditPage from "../pages/UserEditPage.vue";
 import SearchResultPage from "../pages/SearchResultPage.vue";
+import UserLoginPage from "../pages/UserLoginPage.vue";
 
 
 const routes = [
-    { path: '/', component: Index },
-    { path: '/team', component: Team },
-    { path: '/user', component: User },
+    { path: '/', component: IndexPage },
+    { path: '/team', component: TeamPage },
+    { path: '/user', component: UserPage },
     {path: '/search', component: SearchPage },
-    {path: '/user/edit', component: UserEdit },
+    {path: '/user/edit', component: UserEditPage },
     {path: '/user/list', component: SearchResultPage },
+    {path: '/user/login', component: UserLoginPage },
 ]
 
 
