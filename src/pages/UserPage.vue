@@ -31,13 +31,14 @@ const doEdit = (editKey: string, editLabel: string, editValue: string) => {
 }
 
 onMounted(async () => {
-  const currentUser =await getCurrentUser();
+  const currentUser = await getCurrentUser();
   if (currentUser != null) {
-    console.log("UserPage调试信息",currentUser)
+    console.log("UserPage调试信息", currentUser)
     showSuccessToast("获取用户信息成功")
     user.value = currentUser
   } else {
     showFailToast("获取用户信息失败")
+    router.push("/user/login")  // 在组件内处理路由跳转
   }
 })
 
