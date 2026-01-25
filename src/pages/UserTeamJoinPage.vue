@@ -17,7 +17,7 @@ const teamList = ref([]);
 
 // 只会在页面加载时触发一次
 onMounted(async () => {
-  const res = await myAxios.post("/team/list",{})
+  const res = await myAxios.get("/team/list/my/join")
   if (res.code === 0) {
     teamList.value = res.data;
     console.log(teamList.value)
@@ -25,27 +25,11 @@ onMounted(async () => {
     showFailToast("加载失败请刷新重试");
   }
 })
-// 用于搜索的value
-const searchText = ref('');
 
-const onSearch = async (value = '') => {
-  const res = await myAxios.post("/team/list",
-      {
-        keyWord: value
-      })
-  if (res.code === 0) {
-    teamList.value = res.data;
-    console.log(teamList.value)
-  } else {
-    showFailToast("加载失败请刷新重试");
-  }
-}
 </script>
 
 <template>
   <div class="teamPage">
-    队伍
-    <van-search v-model="searchText" placeholder="搜索队伍" @search="onSearch"/>
 
     <van-button type="primary" @click="doCreateTeam">创建队伍</van-button>
 

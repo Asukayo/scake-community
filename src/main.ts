@@ -7,7 +7,7 @@ import { Image as VanImage } from 'vant';
 import { createMemoryHistory, createRouter } from 'vue-router'
 import routes from "./config/route.ts";
 import { Col, Row } from 'vant';
-
+import "vant/es/toast/style"
 // 创建路由器实例
 const router = createRouter({
     history: createMemoryHistory(),

@@ -11,8 +11,8 @@ export type UserType = {
     phone: string;
     email: string;
     userStatus: number;
-    userRole: string;
-    inviteCode: string;
+    userRole: string
     createTime: Date;
     tags: string[];
 }
+

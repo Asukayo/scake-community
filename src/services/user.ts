@@ -1,12 +1,20 @@
-import myAxios from "../plugins/myAxios";
+
+import type {UserType} from "../models/user";
+
+let currentUser: UserType;
 
 /**
- * 获取当前登录用户信息
+ * 设置当前登录用户信息
  */
-export const getCurrentUser = async () => {
-    const res = await myAxios.get("/user/current");
-    if (res.code === 0) {
-        return res.data
-    }
-    return null;
+const setCurrentUser = (user:UserType) => {
+    currentUser = user;
+}
+
+const getCurrentUser = ():UserType => {
+    return currentUser;
+}
+
+export {
+    setCurrentUser,
+    getCurrentUser,
 }
